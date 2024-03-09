@@ -1,6 +1,7 @@
 package com.example.ssmma;
 
 import android.os.Bundle;
+import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +21,9 @@ public class LoginActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        EditText email = findViewById(R.id.editTextEmailAddress);
+        EditText password = findViewById(R.id.editTextPassword);
+
     }
 
 }

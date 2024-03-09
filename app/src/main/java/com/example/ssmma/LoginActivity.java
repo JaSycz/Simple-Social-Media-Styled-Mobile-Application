@@ -1,6 +1,7 @@
 package com.example.ssmma;
 
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
@@ -10,6 +11,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class LoginActivity extends AppCompatActivity {
+    private EditText email, password;
+    private Button login , register;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,8 +24,9 @@ public class LoginActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        EditText email = findViewById(R.id.editTextEmailAddress);
-        EditText password = findViewById(R.id.editTextPassword);
+        email = findViewById(R.id.editTextEmailAddress);
+        password = findViewById(R.id.editTextPassword);
+
 
     }
 

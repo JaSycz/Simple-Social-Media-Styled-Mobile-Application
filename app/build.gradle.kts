@@ -1,13 +1,15 @@
 plugins {
     alias(libs.plugins.androidApplication)
+    // Add the Google Services plugin (check the version in the latest release of the plugin)
+    id("com.google.gms.google-services")
 }
 
 android {
-    namespace = "com.example.smapp"
+    namespace = "com.example.ssmma"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.smapp"
+        applicationId = "com.example.ssmma"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -29,6 +31,10 @@ android {
 }
 
 dependencies {
+    // Add the Firebase BOM (check the version in the latest release of the BOM)
+    implementation(platform("com.google.firebase:firebase-bom:32.7.4"))
+    // Add the Firebase SDK for Google Analytics
+    implementation("com.google.firebase:firebase-analytics")
 
     implementation(libs.appcompat)
     implementation(libs.material)

@@ -1,4 +1,4 @@
-package com.example.smapp;
+package com.example.ssmma;
 
 import org.junit.Test;
 

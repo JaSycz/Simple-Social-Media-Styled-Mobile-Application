@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "123076283909",
+    "project_id": "ssmma-eb51b",
+    "storage_bucket": "ssmma-eb51b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:123076283909:android:7c3bbce300f0aa76df166c",
+        "android_client_info": {
+          "package_name": "com.example.ssmma"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHdkI5lZtxXXtSOUFYSUGMMeRDjp6Jp8w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

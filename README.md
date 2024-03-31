@@ -6,3 +6,10 @@ Welcome to the Simple Social Media Styled Mobile Application! This is a basic mo
 
 - [Jakub Sycz](https://github.com/JaSycz) - 
 - [Paweł Rus](https://github.com/pawel-rus) - 
+
+## Technology Stack Used
+
+- Frontend: XML
+- Backend: Java
+- IDE: Android Studio
+- Database: Firebase

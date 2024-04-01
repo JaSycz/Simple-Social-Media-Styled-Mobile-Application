@@ -152,4 +152,18 @@
         tools:layout_editor_absoluteY="485dp"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxTerms"/>
+
+    <Button
+        android:id="@+id/buttonHomepage"
+        style="@style/GButtonStyle"
+        android:layout_width="143dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#52BA6C"
+        android:text="Go back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        tools:layout_editor_absoluteY="485dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/buttonRegister"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

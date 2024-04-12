@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        if mAuth.getCurrentUser() != null {
+        if (mAuth.getCurrentUser() != null) {
             Intent homeIntent = new Intent(MainActivity.this, DashboardActivity.class);
             startActivity(homeIntent);
             finish();

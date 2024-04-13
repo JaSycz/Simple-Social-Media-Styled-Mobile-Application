@@ -9,11 +9,7 @@
     android:hapticFeedbackEnabled="false"
     tools:context=".RegisterActivity">
 
-    <!-- Nagłówek "Sign Up Here" -->
-
-    <!-- Pole na adres email -->
-
-    <!-- Pole na hasło -->
+    <!-- Header "Sign Up Here" -->
 
     <TextView
         android:id="@+id/signUpHere"
@@ -77,6 +73,7 @@
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/editTextSurname" />
 
+    <!-- Pole na adres email -->
     <EditText
         android:id="@+id/editTextEmailAddress"
         android:layout_width="wrap_content"

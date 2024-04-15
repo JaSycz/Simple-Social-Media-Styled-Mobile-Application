@@ -35,10 +35,8 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Create Account");
-        actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setDisplayHomeAsUpEnabled(true);
+
+
 
         name = findViewById(R.id.editTextName);
         surname = findViewById(R.id.editTextSurname);
@@ -56,11 +54,9 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String emaill = email.getText().toString().trim();
-                int phone_no = Integer.parseInt(phone.getText().toString().trim());
-                String uname = name.getText().toString().trim() + surname.getText().toString().trim();
+                String uname = name.getText().toString().trim();
                 String pass = password.getText().toString().trim();
                 String confirmPass = confirmPassword.getText().toString().trim();
-
                 if (!Patterns.EMAIL_ADDRESS.matcher(emaill).matches()) {
                     email.setError("Invalid Email");
                     email.setFocusable(true);
@@ -71,11 +67,8 @@ public class RegisterActivity extends AppCompatActivity {
                     //if confirm password dont match the password
                     confirmPassword.setError("Passwords do not match");
                     confirmPassword.setFocusable(true);
-                }else if(phone_no > 999999999 || phone_no < 0){
-                    phone.setError("Invalid phone number.");
-                    phone.setFocusable(true);
-                } else {
-                    registerUser(emaill, pass, uname); // add phone number field to firebase
+                }else {
+                    registerUser(emaill, pass, uname);
                 }
             }
         });

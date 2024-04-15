@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="28dp"
         android:gravity="center"
         android:text="Sign Up Here"
         android:textColor="@color/black"
@@ -74,19 +74,20 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextSurname" />
 
     <!-- Pole na adres email -->
+
     <EditText
         android:id="@+id/editTextEmailAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:autofillHints="E-mail"
         android:ems="10"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:singleLine="false"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/editTextPhoneNumber" />
 
     <EditText
@@ -136,31 +137,30 @@
 
 
     <!-- Przycisk "Register" -->
+
     <Button
         android:id="@+id/buttonRegister"
         style="@style/GButtonStyle"
         android:layout_width="143dp"
         android:layout_height="50dp"
+        android:layout_marginTop="44dp"
         android:backgroundTint="#52BA6C"
         android:text="@string/register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        tools:layout_editor_absoluteY="485dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxTerms"/>
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxTerms" />
 
     <Button
         android:id="@+id/buttonHomepage"
         style="@style/GButtonStyle"
         android:layout_width="143dp"
         android:layout_height="50dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="#52BA6C"
         android:text="Go back"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        tools:layout_editor_absoluteY="485dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/buttonRegister"/>
+        app:layout_constraintTop_toBottomOf="@+id/buttonRegister"
+        app:layout_constraintVertical_bias="0.08" />
 </androidx.constraintlayout.widget.ConstraintLayout>

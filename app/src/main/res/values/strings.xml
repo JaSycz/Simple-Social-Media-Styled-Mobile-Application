@@ -8,4 +8,11 @@
     <string name="confirmPassword">Confirm Password</string>
     <string name="name">Name</string>
     <string name="surname">Surname</string>
+    <!-- menu-->
+    <string name="hello_blank_fragment">HELLO THERE</string>
+    <string name="home">Home</string>
+    <string name="add_blogs">Add blogs</string>
+    <string name="users">Users</string>
+    <string name="chat_list">Chat list</string>
+    <string name="profile">Profile</string>
 </resources>

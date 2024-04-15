@@ -25,13 +25,18 @@ public class DashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
         actionBar = getSupportActionBar();
-        actionBar.setTitle("Profile Activity");
+        //actionBar.setTitle("Profile Activity");
+        if (actionBar != null) {
+            actionBar.setTitle("Profile Activity");
+        }
         firebaseAuth = FirebaseAuth.getInstance();
 
         navigationView = findViewById(R.id.navigation);
         navigationView.setOnNavigationItemSelectedListener(selectedListener);
-        actionBar.setTitle("Home");
-
+        //actionBar.setTitle("Home");
+        if (actionBar != null) {
+            actionBar.setTitle("Home");
+        }
         // When we open the application first
         // time the fragment should be shown to the user
         // in this case it is home fragment

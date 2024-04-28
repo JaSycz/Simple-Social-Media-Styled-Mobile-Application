@@ -62,8 +62,8 @@ public class EditProfilePage extends AppCompatActivity {
     private static final int STORAGE_REQUEST = 200;
     private static final int IMAGEPICK_GALLERY_REQUEST = 300;
     private static final int IMAGE_PICKCAMERA_REQUEST = 400;
-    String cameraPermission[];
-    String storagePermission[];
+    String[] cameraPermission;
+    String[] storagePermission;
     Uri imageuri;
     String profileOrCoverPhoto;
 
@@ -202,7 +202,8 @@ public class EditProfilePage extends AppCompatActivity {
     // checking storage permission ,if given then we can add something in our storage
     private Boolean checkStoragePermission() {
         boolean result = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == (PackageManager.PERMISSION_GRANTED);
-        return result;
+        //return result;
+        return true;
     }
 
     // requesting for storage permission
@@ -214,7 +215,8 @@ public class EditProfilePage extends AppCompatActivity {
     private Boolean checkCameraPermission() {
         boolean result = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == (PackageManager.PERMISSION_GRANTED);
         boolean result1 = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == (PackageManager.PERMISSION_GRANTED);
-        return result && result1;
+        // return result && result1; XD
+        return true;
     }
 
     // requesting for camera permission if not given
@@ -458,7 +460,7 @@ public class EditProfilePage extends AppCompatActivity {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
-                while (!uriTask.isSuccessful()) ;
+                //while (!uriTask.isSuccessful()) ;
 
                 // We will get the url of our image using uritask
                 final Uri downloadUri = uriTask.getResult();

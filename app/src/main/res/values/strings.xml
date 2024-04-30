@@ -15,4 +15,12 @@
     <string name="users">Users</string>
     <string name="chat_list">Chat list</string>
     <string name="profile">Profile</string>
+    <!-- edit profile -->
+    <string name="edit_profile_data">Edit Profile Data</string>
+    <string name="update_profile_pic">Update Profile Pic</string>
+    <string name="update_name">Update Name</string>
+    <string name="change_password">Change Password </string>
+    <string name="update_password">Update Password</string>
+    <string name="old_password">Old Password</string>
+    <string name="new_password">New Password</string>
 </resources>

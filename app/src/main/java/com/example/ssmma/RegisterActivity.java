@@ -92,6 +92,7 @@ public class RegisterActivity extends AppCompatActivity {
                     String uid = user.getUid();
                     HashMap<Object, String> hashMap = new HashMap<>();
                     hashMap.put("email", email);
+                    hashMap.put("uid", uid);
                     hashMap.put("name", uname);
                     hashMap.put("onlineStatus", "online");
                     hashMap.put("typingTo", "none");

@@ -30,6 +30,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -42,6 +43,7 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
+import java.util.Objects;
 
 
 /**
@@ -54,6 +56,7 @@ public class AddBlogsFragment extends Fragment {
     }
 
     FirebaseAuth firebaseAuth;
+    FirebaseUser firebaseUser;
     EditText title, des;
     private static final int CAMERA_REQUEST = 100;
     private static final int STORAGE_REQUEST = 200;
@@ -85,6 +88,9 @@ public class AddBlogsFragment extends Fragment {
         Intent intent = getActivity().getIntent();
 
         // Retrieving the user data like name ,email and profile pic using query
+
+        firebaseUser = firebaseAuth.getCurrentUser();
+        uid = firebaseUser.getUid();
         databaseReference = FirebaseDatabase.getInstance().getReference("Users");
         Query query = databaseReference.orderByChild("email").equalTo(email);
         query.addValueEventListener(new ValueEventListener() {
@@ -92,8 +98,9 @@ public class AddBlogsFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                     name = dataSnapshot1.child("name").getValue().toString();
-                    email = "" + dataSnapshot1.child("email").getValue();
-                    dp = "" + dataSnapshot1.child("image").getValue().toString();
+                    email = "" +  dataSnapshot1.child("email").getValue();
+                    //email = Objects.requireNonNull(dataSnapshot1.child("email").getValue()).toString();
+                    dp = "" + dataSnapshot1.child("image").getValue();
                 }
             }
 

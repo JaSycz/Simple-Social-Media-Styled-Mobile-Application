@@ -56,7 +56,7 @@ public class EditProfilePage extends AppCompatActivity {
     String storagepath = "Users_Profile_Cover_image/";
     String uid;
     ImageView set;
-    TextView profilepic, editname, editpassword;
+    TextView profilepic, editname, editpassword, logout;
     ProgressDialog pd;
     private static final int CAMERA_REQUEST = 100;
     private static final int STORAGE_REQUEST = 200;
@@ -78,8 +78,10 @@ public class EditProfilePage extends AppCompatActivity {
         pd = new ProgressDialog(this);
         pd.setCanceledOnTouchOutside(false);
         editpassword = findViewById(R.id.changepassword);
+        logout = findViewById(R.id.logout);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
+        uid = firebaseUser.getUid();
         firebaseDatabase = FirebaseDatabase.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
         databaseReference = firebaseDatabase.getReference("Users");
@@ -111,6 +113,14 @@ public class EditProfilePage extends AppCompatActivity {
             public void onClick(View v) {
                 pd.setMessage("Changing Password");
                 showPasswordChangeDailog();
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                firebaseAuth.signOut();
+                startActivity(new Intent(EditProfilePage.this, SplashScreen.class));
             }
         });
 
@@ -334,7 +344,11 @@ public class EditProfilePage extends AppCompatActivity {
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                                     String child = databaser.getKey();
-                                    dataSnapshot1.getRef().child("uname").setValue(value);
+                                    String postUid =dataSnapshot1.child("uid").getValue(String.class);
+                                    //test
+                                    if(postUid != null && postUid.equals(uid)){
+                                        dataSnapshot1.getRef().child("uname").setValue(value);
+                                    }
                                 }
                             }
 

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".EditProfilePage">
+    tools:context=".EditProfilePage"
+    android:background="@color/green">
 
     <TextView
         android:layout_width="match_parent"
@@ -13,7 +14,7 @@
         android:layout_marginTop="50dp"
         android:text="@string/edit_profile_data"
         android:textAlignment="center"
-        android:textColor="@android:color/holo_red_light"
+        android:textColor="@color/black"
         android:textSize="26sp" />
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -22,7 +23,8 @@
         android:layout_height="130dp"
         android:layout_marginStart="140dp"
         android:layout_marginTop="40dp"
-        android:src="@drawable/ic_users" />
+        android:src="@drawable/ic_users"
+        android:background="@color/green"/>
 
     <TextView
         android:id="@+id/profilepic"
@@ -31,7 +33,7 @@
         android:layout_marginTop="20dp"
         android:text="@string/update_profile_pic"
         android:textAlignment="center"
-        android:textColor="@android:color/holo_red_light"
+        android:textColor="@color/black"
         android:textSize="20sp" />
 
     <TextView
@@ -41,7 +43,7 @@
         android:layout_marginTop="20dp"
         android:text="@string/update_name"
         android:textAlignment="center"
-        android:textColor="@android:color/holo_red_light"
+        android:textColor="@color/black"
         android:textSize="20sp" />
 
     <TextView
@@ -51,7 +53,7 @@
         android:layout_marginTop="20dp"
         android:text="@string/change_password"
         android:textAlignment="center"
-        android:textColor="@android:color/holo_red_light"
+        android:textColor="@color/black"
         android:textSize="20sp" />
 
 </LinearLayout>

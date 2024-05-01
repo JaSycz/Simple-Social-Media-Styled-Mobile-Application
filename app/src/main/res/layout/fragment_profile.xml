@@ -19,7 +19,7 @@
                 android:id="@+id/cavertv"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
-                android:background="@color/colorPrimaryDark"
+                android:background="@color/colorGreen"
                 android:scaleType="fitXY"
                 android:contentDescription="TODO">
             </ImageView>
@@ -37,10 +37,10 @@
                     android:layout_height="120dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginStart="20dp"
-                    android:background="@color/colorPrimary"
+                    android:background="@color/green"
                     android:padding="5dp"
                     android:src="@drawable/ic_account"
-                    android:contentDescription="TODO" />
+                    android:contentDescription="profile image" />
                 <!-- change it later-->
 
                 <LinearLayout
@@ -79,6 +79,6 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="10dp"
-        android:src="@drawable/ic_account" />
+        android:src="@drawable/ic_edit" />
     <!-- change it later-->
 </RelativeLayout>

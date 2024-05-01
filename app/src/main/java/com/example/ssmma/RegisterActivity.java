@@ -92,14 +92,13 @@ public class RegisterActivity extends AppCompatActivity {
                     String uid = user.getUid();
                     HashMap<Object, String> hashMap = new HashMap<>();
                     hashMap.put("email", email);
-                    hashMap.put("uid", uid);
                     hashMap.put("name", uname);
                     hashMap.put("onlineStatus", "online");
-                    hashMap.put("typingTo", "noOne");
+                    hashMap.put("typingTo", "none");
                     hashMap.put("image", "");
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    DatabaseReference reference = database.getReference("Users");
-                    reference.child(uid).setValue(hashMap);
+                    DatabaseReference reference = database.getReference("Users").child(uid);
+                    reference.setValue(hashMap);
                     Toast.makeText(RegisterActivity.this, "Registered User " + user.getEmail(), Toast.LENGTH_LONG).show();
                     Intent mainIntent = new Intent(RegisterActivity.this, DashboardActivity.class);
                     mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

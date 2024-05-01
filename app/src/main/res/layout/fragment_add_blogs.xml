@@ -16,7 +16,7 @@
             android:id="@+id/ptitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/ic_edit"
+
             android:hint="Enter Title"
             android:minHeight="80dp"
             android:padding="10dp"
@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_marginTop="15dp"
-            android:background="@drawable/ic_edit"
+
             android:src="@drawable/ic_images" />
 
         <EditText
@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:background="@drawable/ic_edit"
+
             android:gravity="start"
             android:hint="Enter Description"
             android:inputType="textCapSentences|textMultiLine"
@@ -45,7 +45,7 @@
 
         <Button
             android:id="@+id/pupload"
-            style="@style/Widget.AppCompat.Button.Colored"
+            style="@style/GButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="end"

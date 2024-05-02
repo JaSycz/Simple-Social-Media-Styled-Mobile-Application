@@ -23,4 +23,6 @@
     <string name="update_password">Update Password</string>
     <string name="old_password">Old Password</string>
     <string name="new_password">New Password</string>
+    <string name="search">Search</string>
+    <string name="logout">Logout</string>
 </resources>

@@ -96,7 +96,7 @@ public class RegisterActivity extends AppCompatActivity {
                     hashMap.put("name", uname);
                     hashMap.put("onlineStatus", "online");
                     hashMap.put("typingTo", "none");
-                    hashMap.put("image", "");
+                    hashMap.put("image", "https://firebasestorage.googleapis.com/v0/b/ssmma-eb51b.appspot.com/o/Users_Profile_Cover_image%2Fimage%2Faccount.png?alt=media&token=f9ab8f8d-c9d6-4017-a4f4-577a9297a65c");
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
                     DatabaseReference reference = database.getReference("Users").child(uid);
                     reference.setValue(hashMap);

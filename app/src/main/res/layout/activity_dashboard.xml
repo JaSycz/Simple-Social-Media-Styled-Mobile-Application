@@ -8,6 +8,15 @@
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".DashboardActivity">
+    <!--
+    <com.google.android.material.search.SearchBar
+        android:id="@+id/searchBar"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        app:iconifiedByDefault="false"
+        app:queryHint="Search"
+        ></com.google.android.material.search.SearchBar>
+        -->
 
     <FrameLayout
         android:id="@+id/content"

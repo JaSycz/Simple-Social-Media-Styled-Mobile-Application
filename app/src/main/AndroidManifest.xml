@@ -38,6 +38,7 @@ deprecated permissions
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SimpleSocialMediaMobileApplication"
+        android:enableOnBackInvokedCallback="true"
         tools:targetApi="31">
         <activity
             android:name=".PostDetailsActivity"

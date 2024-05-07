@@ -28,7 +28,8 @@ Wybierz Pixel 4, z obrazem systemu UpdiseDownCake (z zakładki x86 Images).
 
 Tak mniej więcej powinno się to prezentować:
 
-![App Screenshot](/JPWP_1.png)
+![App Screenshot](https://github.com/JaSycz/Simple-Social-Media-Styled-Mobile-Application/blob/pawel/zadania_praktyczne/JPWP_1.png)
+
 ## Zadanie 2
 
 Teraz zajmiemy się tworzeniem dolnego panelu nawigacyjnego z 5 Fragmentami.
@@ -50,6 +51,7 @@ Pomocniczy kod:
 </menu>
 ```
 - Aby w menu wyświetlały się odpowiednie ikony musisz dodać w katalogu drowable odpowiednie pliki. Znajdziesz je pod tymi linkami :
+
 [android.googlesource](https://android.googlesource.com/platform/packages/apps/TvSettings/+/8f47225/Settings/res/drawable)
 
 [android.googlesource](https://android.googlesource.com/platform/packages/apps/Car/Settings/+/f96d9f0/res/drawable)
@@ -90,7 +92,9 @@ Przykładowy kod pliku `ic_home.xml`:
         app:menu="@menu/menu" />
 ```
 - Po wykonaniu tych operacji aplikacja powinna prezentować się następująco:
-![App Screenshot](/JPWP_2.png)
+
+![App Screenshot](https://github.com/JaSycz/Simple-Social-Media-Styled-Mobile-Application/blob/pawel/zadania_praktyczne/JPWP_2.png)
+
 ## Zadanie 3
 - Utwórz 3 Fragment(Blank): PPM na folderze app `New > Fragment > Fragment(Blank)` 
 - W plikach `fragment.xml` ustaw text elementu TextView tak aby przy używaniu menu było widać zmiany na ekranie.

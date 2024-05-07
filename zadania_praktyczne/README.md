@@ -32,12 +32,12 @@ Tak mniej więcej powinno się to prezentować:
 
 ## Zadanie 2
 
-Teraz zajmiemy się tworzeniem dolnego panelu nawigacyjnego z 5 Fragmentami.
+Teraz zajmiemy się tworzeniem dolnego panelu nawigacyjnego z 3 Fragmentami.
 
 - Otwórz strukturę katalogów w widoku `Project`. 
 - Przejdź do `app/src/main/res`, PPM kliknij na folder res  i wybierz `New>Android Resource Directory`
 - Wybierz `Resource type: Menu` i utwórz folder 
-- W nowo utworzonej lokalizacji stwórz `New Meny Resource File` 
+- W nowo utworzonej lokalizacji stwórz `New Menu Resource File` 
 - W pliku menu.xml dodaj 3 elementy dla poszczególnych fragmentow nawigacyjnych.
 
 Pomocniczy kod:
@@ -55,6 +55,8 @@ Pomocniczy kod:
 [android.googlesource](https://android.googlesource.com/platform/packages/apps/TvSettings/+/8f47225/Settings/res/drawable)
 
 [android.googlesource](https://android.googlesource.com/platform/packages/apps/Car/Settings/+/f96d9f0/res/drawable)
+
+[pictogrammers](https://pictogrammers.com/library/mdi/)
 
 - Wybierz dowolne ikony, np. `ic_add, ic_chat, ic_home, ic_user, ic_account`
 - W katalogu drawable stwórz `New > drawable Resource File`, nadaj odpowiednie nazwy i wybierz `Root element: vector`
@@ -97,8 +99,8 @@ Przykładowy kod pliku `ic_home.xml`:
 
 ## Zadanie 3
 - Utwórz 3 Fragment(Blank): PPM na folderze app `New > Fragment > Fragment(Blank)` 
-- W plikach `fragment.xml` ustaw text elementu TextView tak aby przy używaniu menu było widać zmiany na ekranie.
-- W pliku `activity_main.xml` usuń element `<TextView>` i zamiast niego wstaw `<FrameLayout>`, który obejmuje całość ekranu poza dolnym menu.
+- W plikach `fragment.xml` ustaw tekst elementu TextView tak aby przy używaniu przycisków menu było widać zmiany na ekranie.
+- W pliku `activity_main.xml` usuń element `<TextView>` i zamiast niego wstaw `<FrameLayout>`, który obejmuje całość ekranu poza dolnym menu, nadaj mu odpowiednie id. Ten element będziemy zastępować nowo stworzonymi fragmentami.
 - W pliku `MainActivity.java` dodaj odpowiednie importy:
 ```Java
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -106,4 +108,9 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentTransaction;
 ```
-- Stwórz obiekt `BottomNavigationView` i za pomocą `findViewById()` przypisz do niego nasze menu. Do dokończenia ....
+- Stwórz zmienną `BottomNavigationView` i za pomocą metody `findViewById()` przypisz do niej nasze menu. 
+- Ustaw `setOnNavigationItemSelectedListener` dla `BottomNavigationView` i zaimplementuj obsługę zdarzeń menu. W metodzie `onNavigationItemSelected` zastąp aktualny fragment odpowiednim utworzonym fragmentem w zależności od klikniętego przez użytkownika elementu menu.
+
+- Ostatecznie powinniśmy być w stanie zobaczyć wyraźne różnice przy przełączaniu się między fragmentami:
+
+![App Screenshot](https://github.com/JaSycz/Simple-Social-Media-Styled-Mobile-Application/blob/pawel/zadania_praktyczne/JPWP_3.png)

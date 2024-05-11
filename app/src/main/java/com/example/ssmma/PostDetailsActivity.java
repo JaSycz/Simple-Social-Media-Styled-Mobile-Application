@@ -60,10 +60,12 @@ public class PostDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_details);
+        /*
         actionBar = getSupportActionBar();
         actionBar.setTitle("Post Details");
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
+        */
         postId = getIntent().getStringExtra("pid");
         recyclerView = findViewById(R.id.recyclecomment);
         picture = findViewById(R.id.pictureco);
@@ -88,7 +90,7 @@ public class PostDetailsActivity extends AppCompatActivity {
 
         loadUserInfo();
         setLikes();
-        actionBar.setSubtitle("SignedInAs:" + myemail);
+        //actionBar.setSubtitle("SignedInAs:" + myemail);
         loadComments();
         sendb.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -284,14 +286,14 @@ public class PostDetailsActivity extends AppCompatActivity {
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                     String ptitle = dataSnapshot1.child("title").getValue().toString();
                     String descriptions = dataSnapshot1.child("description").getValue().toString();
-                    uimage = dataSnapshot1.child("uimage").getValue().toString();
-                    hisdp = dataSnapshot1.child("udp").getValue().toString();
+                    uimage = "" + dataSnapshot1.child("uimage").getValue();
+                    hisdp = "" + dataSnapshot1.child("udp").getValue();
                     // hisuid = dataSnapshot1.child("uid").getValue().toString();
-                    String uemail = dataSnapshot1.child("uemail").getValue().toString();
-                    hisname = dataSnapshot1.child("uname").getValue().toString();
-                    ptime = dataSnapshot1.child("ptime").getValue().toString();
-                    plike = dataSnapshot1.child("plike").getValue().toString();
-                    String commentcount = dataSnapshot1.child("pcomments").getValue().toString();
+                    String uemail = "" + dataSnapshot1.child("uemail").getValue();
+                    hisname = "" + dataSnapshot1.child("uname").getValue();
+                    ptime = "" + dataSnapshot1.child("ptime").getValue();
+                    plike = "" + dataSnapshot1.child("plike").getValue();
+                    String commentcount = "" + dataSnapshot1.child("pcomments").getValue();
                     Calendar calendar = Calendar.getInstance(Locale.ENGLISH);
                     calendar.setTimeInMillis(Long.parseLong(ptime));
                     String timedate = DateFormat.format("dd/MM/yyyy hh:mm aa", calendar).toString();

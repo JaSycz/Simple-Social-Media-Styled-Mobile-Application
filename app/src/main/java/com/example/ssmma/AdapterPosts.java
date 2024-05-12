@@ -86,6 +86,7 @@ public class AdapterPosts extends RecyclerView.Adapter<com.example.ssmma.Adapter
         holder.comments.setText(comm + " Comments");
         setLikes(holder, ptime);
 
+        // -------------------here-----------------------------------
         //holder.picture.setVisibility(View.VISIBLE);
         try {
             Glide.with(context).load(dp).into(holder.picture);

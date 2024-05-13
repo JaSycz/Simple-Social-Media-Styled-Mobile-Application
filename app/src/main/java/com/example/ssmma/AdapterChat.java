@@ -33,11 +33,13 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AdapterChat extends RecyclerView.Adapter<com.example.ssmma.AdapterChat.Myholder> {
     private static final int MSG_TYPE_LEFT = 0;
-    private static final int MSG_TYPR_RIGHT = 1;
+    private static final int MSG_TYPE_RIGHT = 1;
     Context context;
     List<ModelChat> list;
     String imageurl;
     FirebaseUser firebaseUser;
+    private Myholder holder;
+    private int position;
 
     public AdapterChat(Context context, List<ModelChat> list, String imageurl) {
         this.context = context;
@@ -59,6 +61,9 @@ public class AdapterChat extends RecyclerView.Adapter<com.example.ssmma.AdapterC
 
     @Override
     public void onBindViewHolder(@NonNull Myholder holder, final int position) {
+        this.holder = holder;
+        this.position = position;
+
         String message = list.get(position).getMessage();
         String timeStamp = list.get(position).getTimestamp();
         String type = list.get(position).getType();
@@ -144,7 +149,7 @@ public class AdapterChat extends RecyclerView.Adapter<com.example.ssmma.AdapterC
     public int getItemViewType(int position) {
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         if (list.get(position).getSender().equals(firebaseUser.getUid())) {
-            return MSG_TYPR_RIGHT;
+            return MSG_TYPE_RIGHT;
         } else {
             return MSG_TYPE_LEFT;
         }

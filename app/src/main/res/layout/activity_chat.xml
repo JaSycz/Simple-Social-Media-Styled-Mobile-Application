@@ -41,7 +41,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="HisName"
+                    android:text="@string/hisname"
                     android:textColor="@color/colorWhite"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -50,7 +50,7 @@
                     android:id="@+id/onlinetv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Online"
+                    android:text="@string/online"
                     android:textColor="@color/colorWhite"
                     android:textStyle="bold" />
 
@@ -96,7 +96,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@null"
-            android:hint="Start Typing"
+            android:hint="@string/start_typing"
             android:inputType="textCapSentences|textMultiLine"
             android:padding="15dp" />
 

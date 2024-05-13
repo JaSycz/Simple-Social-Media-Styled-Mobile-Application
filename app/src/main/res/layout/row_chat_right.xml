@@ -18,7 +18,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/ic_account"
-            android:visibility="gone"
+            android:visibility="visible"
             app:civ_border_color="@null" />
 
         <TextView
@@ -35,9 +35,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_toEndOf="@id/timetv"
-            android:background="@drawable/ic_like"
+            android:background="@drawable/ic_heart"
             android:padding="15dp"
-            android:text="His Message"
+            android:text="@string/his_message"
             android:textColor="@color/colorBlack"
             android:textSize="16sp" />
 
@@ -47,7 +47,7 @@
             android:layout_height="200dp"
             android:layout_alignParentEnd="true"
             android:adjustViewBounds="true"
-            android:background="@drawable/ic_like"
+            android:background="@drawable/ic_heart"
             android:padding="15dp"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_images" />
@@ -59,7 +59,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="end"
-        android:text="Delivered"
+        android:text="@string/delivered"
         android:textAlignment="textEnd" />
 
 </LinearLayout>

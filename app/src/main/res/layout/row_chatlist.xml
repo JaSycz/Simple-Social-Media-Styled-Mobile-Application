@@ -29,7 +29,7 @@
             android:layout_marginStart="4dp"
             android:layout_toEndOf="@id/profileimage"
             android:layout_toRightOf="@id/profileimage"
-            android:text="His Name"
+            android:text="@string/his_name"
             android:textColor="@color/colorBlack"
             android:textSize="18sp" />
 
@@ -42,7 +42,7 @@
             android:layout_toEndOf="@id/profileimage"
             android:layout_toRightOf="@id/profileimage"
             android:maxLines="2"
-            android:text="Last Message"
+            android:text="@string/last_message"
             android:textColor="@color/colorBlack" />
 
         <ImageView

@@ -44,10 +44,10 @@ public class AdapterChatList extends RecyclerView.Adapter<AdapterChatList.Myhold
     @Override
     public void onBindViewHolder(@NonNull Myholder holder, final int position) {
 
-        final String hisuid = usersList.get(position).getUid();
-        String userimage = usersList.get(position).getImage();
-        String username = usersList.get(position).getName();
-        String lastmess = lastMessageMap.get(hisuid);
+        final String hisuid = "" + usersList.get(position).getUid();
+        String userimage = "" + usersList.get(position).getImage();
+        String username = "" + usersList.get(position).getName();
+        String lastmess = "" + lastMessageMap.get(hisuid);
         holder.name.setText(username);
         holder.block.setImageResource(R.drawable.ic_unblock);
 

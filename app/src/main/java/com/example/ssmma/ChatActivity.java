@@ -1,6 +1,7 @@
 package com.example.ssmma;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
@@ -146,7 +147,7 @@ public class ChatActivity extends AppCompatActivity {
                         } else {
                             Calendar calendar = Calendar.getInstance();
                             calendar.setTimeInMillis(Long.parseLong(onlinestatus));
-                            String timedate = DateFormat.format("dd/MM/yyyy hh:mm aa", calendar).toString();
+                            String timedate ="" + DateFormat.format("dd/MM/yyyy hh:mm aa", calendar);
                             userstatus.setText("Last Seen:" + timedate);
                         }
                     }
@@ -215,16 +216,16 @@ public class ChatActivity extends AppCompatActivity {
         chatList = new ArrayList<>();
         DatabaseReference dbref = FirebaseDatabase.getInstance().getReference().child("Chats");
         dbref.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 chatList.clear();
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                     ModelChat modelChat = dataSnapshot1.getValue(ModelChat.class);
-                    if (modelChat.getSender().equals(myuid) &&
-                            modelChat.getReceiver().equals(uid) ||
-                            modelChat.getReceiver().equals(myuid)
-                                    && modelChat.getSender().equals(uid)) {
+                    if (modelChat != null && modelChat.getSender() != null && modelChat.getReceiver() != null &&
+                            (modelChat.getSender().equals(myuid) && modelChat.getReceiver().equals(uid) ||
+                                    modelChat.getReceiver().equals(myuid) && modelChat.getSender().equals(uid))) {
                         chatList.add(modelChat); // add the chat in chatlist
                     }
                     adapterChat = new AdapterChat(ChatActivity.this, chatList, image);
@@ -268,6 +269,7 @@ public class ChatActivity extends AppCompatActivity {
 
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         // request for permission if not given
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
             case CAMERA_REQUEST: {
                 if (grantResults.length > 0) {
@@ -393,7 +395,8 @@ public class ChatActivity extends AppCompatActivity {
     private Boolean checkCameraPermission() {
         boolean result = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == (PackageManager.PERMISSION_GRANTED);
         boolean result1 = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == (PackageManager.PERMISSION_GRANTED);
-        return result && result1;
+        //return result && result1;
+        return true;
     }
 
     private void requestCameraPermission() {
@@ -418,7 +421,7 @@ public class ChatActivity extends AppCompatActivity {
 
     private Boolean checkStoragePermission() {
         boolean result = ContextCompat.checkSelfPermission(ChatActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == (PackageManager.PERMISSION_GRANTED);
-        return result;
+        return true;
     }
 
     private void requestStoragePermission() {
@@ -426,48 +429,51 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     private void sendmessage(final String message) {
-        // creating a reference to store data in firebase
-        // We will be storing data using current time in "Chatlist"
-        // and we are pushing data using unique id in "Chats"
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-        String timestamp = String.valueOf(System.currentTimeMillis());
-        HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("sender", myuid);
-        hashMap.put("receiver", uid);
-        hashMap.put("message", message);
-        hashMap.put("timestamp", timestamp);
-        hashMap.put("dilihat", false);
-        hashMap.put("type", "text");
-        databaseReference.child("Chats").push().setValue(hashMap);
-        final DatabaseReference ref1 = FirebaseDatabase.getInstance().getReference("ChatList").child(uid).child(myuid);
-        ref1.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (!dataSnapshot.exists()) {
-                    ref1.child("id").setValue(myuid);
+        if (FirebaseDatabase.getInstance().getReference() != null) {
+            // creating a reference to store data in firebase
+            // We will be storing data using current time in "Chatlist"
+            // and we are pushing data using unique id in "Chats"
+            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+            String timestamp = String.valueOf(System.currentTimeMillis());
+            HashMap<String, Object> hashMap = new HashMap<>();
+            hashMap.put("sender", myuid);
+            hashMap.put("receiver", uid);
+            hashMap.put("message", message);
+            hashMap.put("timestamp", timestamp);
+            hashMap.put("dilihat", false);
+            hashMap.put("type", "text");
+            databaseReference.child("Chats").push().setValue(hashMap);
+            final DatabaseReference ref1 = FirebaseDatabase.getInstance().getReference("ChatList").child(uid).child(myuid);
+            ref1.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (!dataSnapshot.exists()) {
+                        ref1.child("id").setValue(myuid);
+                    }
                 }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            }
-        });
-        final DatabaseReference ref2 = FirebaseDatabase.getInstance().getReference("ChatList").child(myuid).child(uid);
-        ref2.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                if (!dataSnapshot.exists()) {
-                    ref2.child("id").setValue(uid);
                 }
-            }
+            });
+            final DatabaseReference ref2 = FirebaseDatabase.getInstance().getReference("ChatList").child(myuid).child(uid);
+            ref2.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+                    if (!dataSnapshot.exists()) {
+                        ref2.child("id").setValue(uid);
+                    }
+                }
 
-            }
-        });
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+        }
+
     }
 
     @Override

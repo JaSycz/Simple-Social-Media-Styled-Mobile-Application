@@ -1,6 +1,7 @@
 package com.example.ssmma;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,6 +51,15 @@ public class AdapterUsers extends RecyclerView.Adapter<AdapterUsers.MyHolder> {
             Glide.with(context).load(userImage).into(holder.profiletv);
         } catch (Exception e) {
         }
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(context, ChatActivity.class);
+                intent.putExtra("userId", hisuid);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

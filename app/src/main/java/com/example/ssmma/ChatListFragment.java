@@ -44,7 +44,7 @@ public class ChatListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_chatlist, container, false);
+        View view = inflater.inflate(R.layout.fragment_chat_list, container, false);
         firebaseAuth = FirebaseAuth.getInstance();
 
         // getting current user
@@ -125,9 +125,7 @@ public class ChatListFragment extends Fragment {
                     if (sender == null || receiver == null) {
                         continue;
                     }
-                    // checking for the type of message if
-                    // message type is image then set
-                    // last message as sent a photo
+
                     if (chat.getReceiver().equals(firebaseUser.getUid()) &&
                             chat.getSender().equals(uid) ||
                             chat.getReceiver().equals(uid) &&

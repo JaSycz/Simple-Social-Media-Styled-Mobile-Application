@@ -49,6 +49,14 @@ public class ModelUsers {
         this.uid = uid;
     }
 
+    public void setOnlineStatus(String onlineStatus) {
+        this.onlineStatus = onlineStatus;
+    }
+
+    public String getOnlineStatus() {
+        return onlineStatus;
+    }
+
     public ModelUsers(String name, String onlineStatus, String typingTo, String email, String image, String uid) {
         this.name = name;
         this.onlineStatus = onlineStatus;
